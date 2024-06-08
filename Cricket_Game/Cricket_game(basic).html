@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{ 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ball Bat Stump Game</h1>
+    <button onclick="
+    let ramdomNo = Math.random() * 3;
+    let computer;
+    if(ramdomNo>=0 && ramdomNo <=1) computer='bat';
+   else if(ramdomNo>1 && ramdomNo <=2) computer='ball';
+    else if(ramdomNo>2 && ramdomNo <=3) computer='stump';
+     let result;
+    if(computer === 'bat') result=`it's a tie`;
+    else if(computer === 'ball') result=`you won`;
+    else if(computer === 'stump') result=`computer won`;
+
+    alert('you have chosen bat. computer have chosen ' + computer + ' and '+result);
+    ">bat</button>
+
+
+
+    <button onclick="
+    let ramdomNo1 = Math.random() * 3;
+    let computer1;
+    if(ramdomNo1>=0 && ramdomNo1 <=1) computer1='bat';
+   else if(ramdomNo1>1 && ramdomNo1 <=2) computer1='ball';
+    else if(ramdomNo1>2 && ramdomNo1 <=3) computer1='stump';
+     let result1;
+    if(computer1 === 'bat') result1=`computer won`;
+    else if(computer1 === 'ball') result1=`it's tie`;
+    else if(computer1 === 'stump') result1=`you won`;
+
+    alert('you have chosen ball. computer have chosen ' + computer1 + ' and '+result1);
+    ">Ball</button>
+
+
+    
+    <button onclick="
+    let ramdomNo2 = Math.random() * 3;
+    let computer2;
+    if(ramdomNo2>=0 && ramdomNo2 <=1) computer2='bat';
+   else if(ramdomNo2>1 && ramdomNo2 <=2) computer2='ball';
+    else if(ramdomNo2>2 && ramdomNo2 <=3) computer2='stump';
+     let result2;
+    if(computer2 === 'bat') result2=`you won`;
+    else if(computer2 === 'ball') result2=`computer won`;
+    else if(computer2 === 'stump') result2=`it's a tie`;
+
+    alert('you have chosen stump. computer have chosen ' + computer2 + ' and '+result2);
+    ">stump</button>
+</body>
+</html>
