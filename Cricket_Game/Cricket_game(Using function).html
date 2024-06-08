@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{ 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ball Bat Stump Game</h1>
+    <button onclick="
+    let computer=getComp();
+    let result=getResult('bat',computer);
+    displayResult('bat',computer,result)   
+     ">bat</button>
+
+    <button onclick="
+      computer=getComp();
+     result=getResult('ball',computer);
+     displayResult('ball',computer,result) 
+         ">Ball</button>
+
+    <button onclick="
+     computer=getComp();
+     result=getResult('stump',computer);
+     displayResult('stump',computer,result) 
+         ">stump</button>
+
+    <script>
+        function getComp(){
+            let ramdomNo = Math.random() * 3;
+            if(ramdomNo>=0 && ramdomNo <=1) return 'bat';
+            else if(ramdomNo>1 && ramdomNo <=2) return 'ball';
+            else if(ramdomNo>2 && ramdomNo <=3) return 'stump';
+        }
+        function getResult(userMove,computer){
+            if(userMove ==='bat'){
+                if(computer === 'bat') return `it's a tie`;
+                    else if(computer === 'ball') return `you won`;
+                    else if(computer === 'stump') return `computer won`;
+            }
+            else if(userMove === 'ball'){
+                if(computer === 'bat') return `computer won`;
+                else if(computer === 'ball') return `it's tie`;
+                else if(computer === 'stump') return `you won`;
+            }
+            else{
+                if(computer === 'bat') return `you won`;
+                 else if(computer === 'ball') return `computer won`;
+                     else if(computer === 'stump') return `it's a tie`;
+            }
+        }
+        function displayResult(usermove,computer,result){
+           
+            alert(`you have chosen ${usermove}. computer have chosen ${computer} 
+            
+            ${result}
+            
+            `);
+
+    
+        }
+    </script>
+</body>
+</html>
