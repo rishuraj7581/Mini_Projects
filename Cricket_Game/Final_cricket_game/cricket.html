@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cricket.css">
+    
+</head>
+<body>
+    <h1 id="hii">Ball Bat Stump Game</h1>
+    
+   
+   
+    <button class="choice-button" onclick="
+    let computer=getComp();
+    let result=getResult('bat',computer);
+    displayResult('bat',computer,result);
+    "><img class="choice" src="bat.png" alt="bat"></button>
+
+    <button class="choice-button" onclick="
+      computer=getComp();
+     result=getResult('ball',computer);
+     displayResult('ball',computer,result);
+         "> <img class="choice" src="ball.png" alt="ball"></button>
+
+    <button class="choice-button" onclick="
+     computer=getComp();
+     result=getResult('stump',computer);
+     displayResult('stump',computer,result);
+         "> <img class="choice" src="stump.png" alt="stump"></button>
+  
+    
+    <div class="heding">
+   <h3 id="user-move"></h3>
+   <h3 id="computer-move"></h3>
+   <h3 id="result"></h3>
+   <h3 id="score"></h3>
+</div>
+                <button class="clear" onclick="
+                localStorage.clear();
+                score.win=0;
+                score.loss=0;
+                score.tie=0;
+                displayResult();
+                ">Clear</button>
+
+    <script>
+        let scoreString = localStorage.getItem('score');
+        let score;
+        // let score = {
+        //         win : 0,
+        //         loss : 0,
+        //         tie : 0,
+        // };
+        if(scoreString!= undefined){
+            score=JSON.parse(scoreString);
+        }
+        else{
+         score = {
+                win : 0,
+                loss : 0,
+                tie : 0,
+        };
+    }
+
+        score.displayScore = function(){
+                    return `won: ${score.win} loss: ${score.loss} tie: ${score.tie}`;
+                };
+
+        function getComp(){
+            let ramdomNo = Math.random() * 3;
+            if(ramdomNo>=0 && ramdomNo <=1) return 'bat';
+            else if(ramdomNo>1 && ramdomNo <=2) return 'ball';
+            else if(ramdomNo>2 && ramdomNo <=3) return 'stump';
+        }
+        function getResult(userMove,computer){
+            if(userMove ==='bat'){
+                if(computer === 'bat'){
+                    score.tie++;
+                    return `it's a tie`;
+                    }
+                    else if(computer === 'ball') {
+                        score.win++;
+                        return `you won`;
+                    }
+                    else if(computer === 'stump') {
+                        score.loss++;
+                        return `computer won`;
+                   }
+            }
+            else if(userMove === 'ball'){
+                if(computer === 'bat') {
+                    score.loss++;
+                    return `computer won`;
+                    }
+                else if(computer === 'ball') {
+                    score.tie++;
+                    return `it's tie`;
+               }
+                else if(computer === 'stump') {
+                    score.win++;
+                    return `you won`;
+                    }
+            }
+            else{
+                if(computer === 'bat'){ 
+                    score.win++;
+                    return `you won`;
+                     }
+                 else if(computer === 'ball') {
+                    score.loss++;
+                    return `computer won`;
+                    }
+                     else if(computer === 'stump') {
+                        score.tie++;
+                        return `it's a tie`;
+                     }
+            }
+        }
+        function displayResult(usermove,computer,result){
+            localStorage.setItem('score',JSON.stringify(score));
+
+            document.querySelector('#user-move').innerText=
+            usermove ? `you have chosen ${usermove}.` : " ";
+
+            document.querySelector('#computer-move').innerText=
+            computer ? `computer have chosen ${computer}.`:" ";
+
+            document.querySelector('#result').innerText=
+            result ? `${result}`:" ";
+
+            document.querySelector('#score').innerText=`${score.displayScore()}`;
+        }
+    </script>
+</body>
+</html>

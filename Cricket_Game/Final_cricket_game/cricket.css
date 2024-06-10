@@ -1,0 +1,46 @@
+body{ 
+    text-align: center;
+    background-image: url(logo.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+#hii{
+    color: rgb(126, 240, 242);
+}
+.clear{
+   border-radius: 10px;
+   height: 30px;
+   width: 60px;
+   cursor: pointer; 
+}
+
+.clear:hover{
+    background-color: rgb(72, 21, 238);
+    height: 35px;
+    width: 65px;
+   
+}
+
+.choice-button{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(164, 212, 130);
+    border: none;
+    border-radius: 50px;
+    margin: 13px;
+    margin-left: 50px;
+    margin-right: 50px;
+    cursor: pointer;
+}
+.choice-button:hover{
+    background-color: rgb(195, 239, 36);
+    height: 105px;
+    width: 105px;
+    border: 5px solid rgb(245, 234, 27);
+}
+.choice{
+   height: 75px;
+}
